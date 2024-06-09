@@ -1,5 +1,10 @@
 package com.atguigu.git;
 
+
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.Map;
+
 public class GitTest {
     public static void main(String[] args) {
         System.out.println("hello git");
@@ -12,5 +17,10 @@ public class GitTest {
         System.out.println("pull test");
         System.out.println("gitee test");
         System.out.println("gitee pull");
+        Map<String,Object> map = new HashMap<>();
+        for(int i = 0; i < 12;i++){
+            map.put("key"+i,i);
+        }
+        map.put("test","test");
     }
 }
