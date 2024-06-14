@@ -1,4 +1,4 @@
-package com.atguigu.git.javase.code.timu4;
+package com.atguigu.git.concurrent.code.timu1;
 
 class ShareDataOne{
     private int number = 0;

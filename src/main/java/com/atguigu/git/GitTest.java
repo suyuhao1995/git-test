@@ -2,7 +2,6 @@ package com.atguigu.git;
 
 
 import java.util.HashMap;
-import java.util.Hashtable;
 import java.util.Map;
 
 public class GitTest {
@@ -21,6 +20,6 @@ public class GitTest {
         for(int i = 0; i < 12;i++){
             map.put("key"+i,i);
         }
-        map.put("test","test");
+        map.put(null,null);
     }
 }
