@@ -1,4 +1,4 @@
-package com.atguigu.git.javase.code.timu5;
+package com.atguigu.git.concurrent.code.timu2;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
