@@ -1,8 +1,7 @@
 package com.atguigu.git;
 
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class GitTest {
     public static void main(String[] args) {
@@ -21,5 +20,16 @@ public class GitTest {
             map.put("key"+i,i);
         }
         map.put(null,null);
+        Map<String,Object> table = new Hashtable<>();
+        table.put("key1","value1");
+        List<String> list = new ArrayList<>();
+        for(int i = 0; i < 10;i++){
+            list.add("key"+i);
+        }
+        list.add("a");
+        list.add("b");
+        list.add("c");
+        String[] strings = list.toArray(new String[]{});
+        Arrays.stream(strings).forEach(System.out::println);
     }
 }

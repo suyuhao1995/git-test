@@ -1,4 +1,4 @@
-package com.atguigu.git.concurrent.base.timu4;
+package com.atguigu.git.concurrent.base;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

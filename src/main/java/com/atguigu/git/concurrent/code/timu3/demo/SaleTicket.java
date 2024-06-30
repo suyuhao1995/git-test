@@ -5,20 +5,19 @@ import java.util.concurrent.locks.ReentrantLock;
 
 class Ticket/* implements Runnable*/{
 	private int number = 30;
-	//1.¸´Ï°Synchronized
-	//µÚÒ»ÖÖ:Í¬²½·½·¨
-	/*	
-	 public synchronized void sale() {
-		//µÚ¶şÖÖ:Í¬²½´úÂë¿é
-		synchronized (this) {
-			
-		}
-		if(number > 0) {
-			System.out.println(Thread.currentThread().getName()
-					+"\t Âô³ö"+number--+"ºÅÆ±\t»¹Ê£"+number);
-	    }
-	 }
-	 */
+	//1.å¤ä¹ Synchronized
+	//ç¬¬ä¸€ç§:åŒæ­¥æ–¹æ³•
+    /*
+        public synchronized void sale() {
+            //ç¬¬äºŒç§:åŒæ­¥ä»£ç å—
+            synchronized (this) {
+            }
+            if(number > 0) {
+                System.out.println(Thread.currentThread().getName()
+                +"\t å–å‡º"+number--+"å·ç¥¨\tè¿˜å‰©"+number);
+            }
+        }
+    */
 	//2.lock
 	private Lock lock = new ReentrantLock();
 	public void sale() {
@@ -27,7 +26,7 @@ class Ticket/* implements Runnable*/{
 			if(number>0) {
 				Thread.sleep(500);
 				System.out.println(Thread.currentThread().getName()
-				+"\t Âô³ö"+number--+"ºÅÆ±\t»¹Ê£"+number);
+						+"\t å–å‡º"+number--+"å·ç¥¨\tè¿˜å‰©"+number);
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -36,62 +35,62 @@ class Ticket/* implements Runnable*/{
 			lock.unlock();
 		}
 	}
-	/*	
-	@Override
-	public void run() {
-		while(number>0) {
-			sale();
-		}
-	}
-	*/	
+    /*
+        @Override
+        public void run() {
+            while(number>0) {
+                sale();
+            }
+        }
+    */
 }
 
 public class SaleTicket {
 	public static void main(String[] args) {
 		Ticket ticket = new Ticket();
-		//ÊµÏÖRunnable
-		//·½Ê½Ò»:ticketÀàÊµÏÖrunnable½Ó¿Ú
-		/*		 
-		 	new Thread(ticket,"AA").start(); 
-		 	new Thread(ticket, "BB").start();
-		 	new Thread(ticket, "CC").start();
-		 */
-		//·½Ê½¶ş:ÄäÃûÄÚ²¿Àà
-		/*		
- 		new Thread(new Runnable() {		
-			@Override
-			public void run() {
-				for(int i=1;i<=40;i++) {
-					ticket.sale();
-				}
-			}
-		},"AA").start();
-		new Thread(new Runnable() {		
-			@Override
-			public void run() {
-				for(int i=1;i<=40;i++) {
-					ticket.sale();
-				}
-			}
-		},"BB").start();		
-		new Thread(new Runnable() {		
-			@Override
-			public void run() {
-				for(int i=1;i<=40;i++) {
-					ticket.sale();
-				}
-			}
-		},"CC").start();	
-		*/			
-		//·½Ê½Èı:lamda±í´ïÊ½
+		//å®ç°Runnable
+		//æ–¹å¼ä¸€:ticketç±»å®ç°runnableæ¥å£
+        /*
+            new Thread(ticket,"AA").start();
+            new Thread(ticket, "BB").start();
+            new Thread(ticket, "CC").start();
+        */
+		//æ–¹å¼äºŒ:åŒ¿åå†…éƒ¨ç±»
+        /*
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    for(int i=1;i<=40;i++) {
+                        ticket.sale();
+                    }
+                }
+            },"AA").start();
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    for(int i=1;i<=40;i++) {
+                        ticket.sale();
+                    }
+                }
+            },"BB").start();
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    for(int i=1;i<=40;i++) {
+                        ticket.sale();
+                    }
+                }
+            },"CC").start();
+        */
+		//æ–¹å¼ä¸‰:lamdaè¡¨è¾¾å¼
 		new Thread(()->{for(int i=1;i<=40;i++) {
 			ticket.sale();
-		}},"AA").start(); 
+		}},"AA").start();
 		new Thread(()->{for(int i=1;i<=40;i++) {
 			ticket.sale();
-		}},"BB").start(); 
+		}},"BB").start();
 		new Thread(()->{for(int i=1;i<=40;i++) {
 			ticket.sale();
-		}},"CC").start(); 		
+		}},"CC").start();
 	}
 }

@@ -1,7 +1,7 @@
 package com.atguigu.git.concurrent.base.timu4;
 
-import static com.atguigu.git.concurrent.base.timu4.LoggerUtils.logger1;
-import static com.atguigu.git.concurrent.base.timu4.LoggerUtils.main;
+import static com.atguigu.git.concurrent.base.LoggerUtils.logger1;
+import static com.atguigu.git.concurrent.base.LoggerUtils.main;
 
 public class TestThreadState {
     static final Object LOCK = new Object();

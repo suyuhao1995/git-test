@@ -26,7 +26,7 @@ public class RunnableImpl implements Runnable{
     @Override
     public void run() {
         //使用死循环,让卖票操作重复执行
-        while(true){
+        while(ticket > 0){
             //同步代码块
             synchronized (obj){
                 //先判断票是否存在
