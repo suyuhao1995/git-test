@@ -22,5 +22,6 @@ public class GitTest {
             map.put("key"+i,i);
         }
         map.put("test","test");
+        System.out.println("test merge");
     }
 }
